@@ -1,0 +1,14 @@
+<div class="survey-edition-list mt-4">
+  <h4 class="text-lg font-semibold text-gray-700 mb-3">Survey Editions</h4>
+  @if (editions && editions.length > 0) {
+    <div class="flex gap-4 w-full">
+
+        @for (edition of editions; track edition.id) {
+          <app-survey-edition-item [edition]="edition"></app-survey-edition-item>
+        }
+
+    </div>
+  } @else {
+    <p class="text-red-500 italic">No editions available.</p>
+  }
+</div>
