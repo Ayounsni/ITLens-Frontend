@@ -1,0 +1,11 @@
+@for (subject of subjects; track subject.id) {
+    <!-- <app-survey-edition-item [edition]="edition"></app-survey-edition-item> -->
+    <li class="mb-4">
+        <div class="flex items-center space-x-2">
+          <div class="w-4 h-4 bg-blue-600 rounded-full"></div>
+          <span class="text-lg font-semibold text-gray-800">{{subject.title}}</span>
+        </div>
+        <app-subject-item [subsubjects]="subject.subSubjects"></app-subject-item>
+        
+      </li>
+  }
