@@ -1,5 +1,21 @@
+<h1 class="text-3xl text-gray-800 my-7 font-medium text-center"> Survey </h1>
+<button class="bg-blue-600 text-white rounded-md px-4 py-1 hover:bg-blue-500 ml-7" (click)="togglePopup()">ajouter Survey</button>
+@if (isPopupVisible) {
+  <div class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center">
+    <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-lg">
+      <button 
+      class=" text-gray-600 text-2xl " 
+      (click)="togglePopup()">x</button>
+      <h2 class="text-xl text-center font-medium text-gray-800 mb-4">Ajouter un Survey</h2>
+      <!-- Ajouter ici le composant du formulaire -->
+      <app-survey-form></app-survey-form>
+
+    </div>
+  </div>
+}
 <div class="surveys-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
   @for (survey of surveys; track survey.id) {
     <app-survey-item [survey]="survey"></app-survey-item>
   }
 </div>
+

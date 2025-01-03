@@ -1,0 +1,22 @@
+@if (subject.questions && subject.questions.length > 0) {
+    <div class="flex flex-col justify-center items-center">
+        <h1 class="text-2xl font-bold text-blue-600 mb-6">Questions </h1>
+<table class="table-auto border-collapse border border-gray-300 w-[700px]">
+  <thead>
+    <tr class="bg-gray-200">
+      <th class="border border-gray-300 px-4 py-2">ID</th>
+      <th class="border border-gray-300 px-4 py-2">Question</th>
+      <th class="border border-gray-300 px-4 py-2">Question</th>
+      <th class="border border-gray-300 px-4 py-2">Actions</th>
+    </tr>
+  </thead>
+  <tbody >
+    <app-question-item [surveyEditionId]="surveyEditionId" [subjectId]="subjectId" [questions]="subject.questions"></app-question-item>
+  </tbody>
+</table>
+<router-outlet></router-outlet>
+    </div>
+}@else{
+    <p class="text-red-500 text-lg italic ml-6">Aucune question disponible pour ce sujet.</p>
+}
+

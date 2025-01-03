@@ -1,11 +1,20 @@
+@if (subjects && subjects.length > 0) {
 @for (subject of subjects; track subject.id) {
-    <!-- <app-survey-edition-item [edition]="edition"></app-survey-edition-item> -->
-    <li class="mb-4">
-        <div class="flex items-center space-x-2">
-          <div class="w-4 h-4 bg-blue-600 rounded-full"></div>
-          <span class="text-lg font-semibold text-gray-800">{{subject.title}}</span>
-        </div>
-        <app-subject-item [subsubjects]="subject.subSubjects"></app-subject-item>
-        
-      </li>
-  }
+  <li class="mb-4">
+    <div class="flex items-center space-x-2">
+      
+      <button  (click)="subject.isSubSubjectsVisible = !subject.isSubSubjectsVisible" class="ml-2 text-blue-500 text-xl">
+        {{ subject.isSubSubjectsVisible ? '⮟' : '⮞' }}
+      </button>
+      <span class="text-lg font-semibold text-gray-800 cursor-pointer" [routerLink]="['/surveyEdition', surveyEditionId, 'subject', subject.id]" >{{subject.title}}</span>
+
+    </div>
+
+    @if (subject.isSubSubjectsVisible) {
+      <app-subject-item [surveyEditionId]="surveyEditionId" [subsubjects]="subject.subSubjects"></app-subject-item>
+    }
+  </li>
+}
+} @else {
+  <p class="text-red-500 text-lg italic ml-6">Les titres sont introuvables.</p>
+}

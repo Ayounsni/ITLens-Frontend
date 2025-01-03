@@ -1,0 +1,31 @@
+@if (question.answers && question.answers.length > 0) {
+    <h1 class="text-2xl font-bold text-blue-600 mt-6 mb-2">Réponses </h1>
+    <table class="table-auto border-collapse border border-gray-300 w-[700px]">
+      <thead>
+        <tr class="bg-gray-200">
+          <th class="border border-gray-300 px-4 py-2">ID</th>
+          <th class="border border-gray-300 px-4 py-2">Réponse</th>
+          <th class="border border-gray-300 px-4 py-2">Actions</th>
+        </tr>
+      </thead>
+      <tbody >
+        @for (answer of question.answers; track answer.id) {
+          <tr class="h-fit">
+            <td class="border border-gray-300 px-4 py-2">{{answer.id}}</td>
+            <td class="border border-gray-300 px-4 py-2 ">{{answer.text}}</td>
+            <td class="border border-gray-300 flex justify-center flex-col items-center  ">
+              <button  class="bg-blue-500 text-white w-full  px-3 py-1 rounded  hover:bg-blue-700">
+                Modifier
+              </button>
+              <button  class="bg-red-500 text-white w-full px-3 py-1 rounded hover:bg-red-700">
+                Supprimer
+              </button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+}@else{
+    <p class="text-red-500 text-lg italic ml-6">Aucune réponse disponible pour cette question.</p>
+}
+

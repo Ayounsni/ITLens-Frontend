@@ -1,0 +1,16 @@
+@for (question of questions; track question.id) {
+    <tr class="h-fit">
+      <td class="border border-gray-300 px-4 py-2">{{ question.id}}</td>
+      <td class="border border-gray-300 px-4 py-2 cursor-pointer" [routerLink]="['/surveyEdition', surveyEditionId, 'subject', subjectId,'question',question.id]">{{ question.text}}</td>
+      <td class="border text-sm border-gray-300 px-4 py-2">{{ question.questionType}}</td>
+      <td class="border border-gray-300 flex justify-center flex-col items-center  ">
+        <button  class="bg-blue-500 text-white w-full  px-3 py-1 rounded  hover:bg-blue-700">
+          Modifier
+        </button>
+        <button  class="bg-red-500 text-white w-full px-3 py-1 rounded hover:bg-red-700">
+          Supprimer
+        </button>
+      </td>
+    </tr>
+  }
+
